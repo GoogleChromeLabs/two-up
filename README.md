@@ -69,7 +69,7 @@ This can also be get/set via the property `twoUp.orientation`.
 
 ## Demo
 
-TODO.
+See [examples on CodePen](https://codepen.io/developit/pen/qBdbNLK).
 
 ## Files
 
