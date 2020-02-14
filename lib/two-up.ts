@@ -43,8 +43,11 @@ export default class TwoUp extends HTMLElement {
 
     // Watch for element size changes.
     if ('ResizeObserver' in window) {
-      new ResizeObserver(() => this._resetPosition())
-        .observe(this);
+      new ResizeObserver(() => {
+        // Ignore child resize events during handle dragging
+        if (pointerTracker.currentPointers.length > 0) return;
+        this._resetPosition();
+      }).observe(this);
     } else {
       window.addEventListener('resize', () => this._resetPosition());
     }
