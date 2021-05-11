@@ -3,6 +3,7 @@ import * as styles from './styles.css';
 
 const legacyClipCompatAttr = 'legacy-clip-compat';
 const orientationAttr = 'orientation';
+const initialPositionAttr = 'initial-position';
 
 type TwoUpOrientation = 'horizontal' | 'vertical';
 
@@ -21,7 +22,7 @@ export default class TwoUp extends HTMLElement {
   /**
    * The position of the split in %.
    */
-  private _relativePosition = 0.5;
+  private _relativePosition = this.initialposition;
   /**
    * The value of _position when the pointer went down.
    */
@@ -128,6 +129,19 @@ export default class TwoUp extends HTMLElement {
 
   set orientation(val: TwoUpOrientation) {
     this.setAttribute(orientationAttr, val);
+  }
+
+  get initialposition(): number {
+    const value = this.getAttribute(initialPositionAttr);
+    if( value === null || typeof value === 'undefined' )
+      return .5;
+    const perc = parseFloat( value );
+    if( perc === 0 ) return 0;
+    return perc;
+  }
+
+  set initialposition(val: number) {
+    this.setAttribute(initialPositionAttr, val.toString() );
   }
 
   /**

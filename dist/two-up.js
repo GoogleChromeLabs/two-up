@@ -219,6 +219,7 @@ var TwoUp = (function () {
 
     const legacyClipCompatAttr = 'legacy-clip-compat';
     const orientationAttr = 'orientation';
+    const initialPositionAttr = 'initial-position';
     /**
      * A split view that the user can adjust. The first child becomes
      * the left-hand side, and the second child becomes the right-hand side.
@@ -234,7 +235,7 @@ var TwoUp = (function () {
             /**
              * The position of the split in %.
              */
-            this._relativePosition = 0.5;
+            this._relativePosition = this.initialposition;
             /**
              * The value of _position when the pointer went down.
              */
@@ -323,6 +324,18 @@ var TwoUp = (function () {
         }
         set orientation(val) {
             this.setAttribute(orientationAttr, val);
+        }
+        get initialposition() {
+            const value = this.getAttribute(initialPositionAttr);
+            if (value === null || typeof value === 'undefined')
+                return .5;
+            const perc = parseFloat(value);
+            if (perc === 0)
+                return 0;
+            return perc;
+        }
+        set initialposition(val) {
+            this.setAttribute(initialPositionAttr, val.toString());
         }
         /**
          * Called when element's child list changes
