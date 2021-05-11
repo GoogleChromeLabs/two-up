@@ -47,6 +47,12 @@ This can also be get/set via the boolean property `twoUp.legacyClipCompat`.
 
 This can also be get/set via the property `twoUp.orientation`.
 
+```html
+<two-up initial-position=".25"></two-up>
+```
+
+The initial position of the slider as a decimal value between 0 and 1. 
+
 ### CSS Custom Properties
 
 ```css
