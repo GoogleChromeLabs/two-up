@@ -1,6 +1,6 @@
 {
   "name": "two-up-element",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Compare two elements by sliding between them.",
   "main": "dist/two-up.js",
   "module": "dist/two-up.mjs",
