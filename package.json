@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/GoogleChromeLabs/two-up#readme",
   "devDependencies": {
-    "rollup": "^0.66.6",
+    "rollup": "^3.29.5",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-terser": "^3.0.0",
